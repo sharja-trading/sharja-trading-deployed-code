@@ -6,11 +6,11 @@ import { Toaster, toast } from "sonner";
 type Props = {};
 
 const ContactComponent = (props: Props) => {
-  // 1. State for form data, initializing with fields matching the form inputs
+  // 1. State for form data, CHANGED 'subject' TO 'phone'
   const [form, setForm] = useState({
     name: "", // Maps to form_name
     email: "", // Maps to form_email
-    subject: "", // New field based on the third input/message logic
+    phone: "", // CHANGED: New field for phone number (from subject)
     message: "", // Maps to form_message (textarea)
   });
   const [loading, setLoading] = useState(false);
@@ -20,7 +20,7 @@ const ContactComponent = (props: Props) => {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
     const { name, value } = e.target;
-    // Map the HTML form names to the state object keys
+    // Map the HTML form names to the state object keys (e.g., form_phone -> phone)
     const stateName = name.replace("form_", "") as keyof typeof form;
     setForm((prev) => ({ ...prev, [stateName]: value }));
   };
@@ -35,14 +35,19 @@ const ContactComponent = (props: Props) => {
       const res = await axios.post("/api/send-email", {
         name: form.name,
         email: form.email,
-        // Concatenate subject and message, similar to how phone was concatenated before
-        message: `Subject: ${form.subject}\n\n${form.message}`,
+        // CHANGED: Pass phone number from state
+        phone: form.phone,
+        // CHANGED: The message is now sent directly without concatenating a subject
+        message: form.message,
+        // Optional: If your mailer relies on a subject, you can add a default or allow a subject field here
+        // For simplicity, we can pass a subject based on name, or simply omit it if your API/mailer handles the default subject.
+        // Assuming your mailer handles the default subject if not provided, we will omit it for now.
       });
 
       if (res.status === 200) {
         toast.success("Message sent successfully! We'll be in touch soon. 😊");
         // Reset form on success
-        setForm({ name: "", email: "", subject: "", message: "" });
+        setForm({ name: "", email: "", phone: "", message: "" });
       } else {
         toast.error("Something went wrong, please try again. 😔");
       }
@@ -244,15 +249,16 @@ const ContactComponent = (props: Props) => {
                         required
                       />
                     </div>
-                    {/* Subject Field (Mapping the third field to 'subject' for context) */}
+                    {/* Phone Field (Mapped from the old Subject field) */}
                     <div className="type-feild">
-                      <i className="fa-light fa-pen-to-square"></i>
+                      {/* Changed icon to a phone/call icon if available in your font library */}
+                      <i className="fa-light fa-phone"></i>
                       <input
-                        name="form_subject" // Added name and changed logic to use an input for subject
+                        name="form_phone" // CHANGED: Name is now form_phone
                         className="required"
-                        type="text"
-                        placeholder="Subject*"
-                        value={form.subject}
+                        type="tel" // CHANGED: Type is now tel
+                        placeholder="Phone Number*" // CHANGED: Placeholder updated
+                        value={form.phone}
                         onChange={handleChange}
                         required
                       />
