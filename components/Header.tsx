@@ -190,14 +190,16 @@ const Header = (props: Props) => {
                   <div className="contact-info-box">
                     <i className="icon lnr-icon-phone-handset"></i>
                     <span className="title">Call Now</span>
-                    <a href="tel:+92880098670">+251 942 43 9999</a>
+                    <a href="tel:+251942439999">+251 942 43 9999</a>
                   </div>
                 </li>
                 <li>
                   <div className="contact-info-box">
                     <span className="icon lnr-icon-envelope1"></span>
                     <span className="title">Send Email</span>
-                    <a href="mailto:contact@email.com">contact@email.com</a>
+                    <a href="mailto:management@sharjatrading.com">
+                      management@sharjatrading.com
+                    </a>
                   </div>
                 </li>
                 <li>
