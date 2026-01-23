@@ -1,6 +1,6 @@
-import React from 'react'
+import React from "react";
 
-type Props = {}
+type Props = {};
 
 const CaseStudy = (props: Props) => {
   return (
@@ -10,7 +10,7 @@ const CaseStudy = (props: Props) => {
           <img
             className="sway_Y__animation"
             src="./assets/images/shape/case-three-shape.png"
-            alt="Image"
+            alt="Shape"
           />
         </div>
         <div className="box-shape">
@@ -101,91 +101,27 @@ const CaseStudy = (props: Props) => {
               </a>
             </div>
           </div>
+
           <div className="image-column">
-            <div className="row g-0">
-              <div className="col-sm-6">
-                <div className="case-block-three overlay-anim">
-                  <figure className="image">
-                    <img
-                      src="./assets/images/sharja/sharja-img-1.jpg"
-                      alt="Image"
-                    />
-                  </figure>
-                  <a className="icon" href="/services">
-                    <i className="fa-solid fa-arrow-up-right"></i>
-                  </a>
-                  <div className="content">
-                    <h5 className="title">
-                      <a href="/services">HR Development</a>
-                    </h5>
-                    <h4 className="sub-title">
-                      <a href="/services">All</a>
-                    </h4>
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-6">
-                <div className="case-block-three overlay-anim">
-                  <figure className="image">
-                    <img
-                      src="./assets/images/sharja/sharja-img-3.jpg"
-                      alt="Image"
-                    />
-                  </figure>
-                  <a className="icon" href="/services">
-                    <i className="fa-solid fa-arrow-up-right"></i>
-                  </a>
-                  <div className="content">
-                    <h5 className="title">
-                      <a href="/services">HR Development</a>
-                    </h5>
-                    <h4 className="sub-title">
-                      <a href="/services">All</a>
-                    </h4>
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-6">
-                <div className="case-block-three overlay-anim">
-                  <figure className="image">
-                    <img
-                      src="./assets/images/sharja/sharja-img-4.jpg"
-                      alt="Image"
-                    />
-                  </figure>
-                  <a className="icon" href="/services">
-                    <i className="fa-solid fa-arrow-up-right"></i>
-                  </a>
-                  <div className="content">
-                    <h5 className="title">
-                      <a href="/services">HR Development</a>
-                    </h5>
-                    <h4 className="sub-title">
-                      <a href="/services">All</a>
-                    </h4>
-                  </div>
-                </div>
-              </div>
-              <div className="col-sm-6">
-                <div className="case-block-three overlay-anim">
-                  <figure className="image">
-                    <img
-                      src="./assets/images/sharja/sharja-img-2.jpg"
-                      alt="Image"
-                    />
-                  </figure>
-                  <a className="icon" href="/services">
-                    <i className="fa-solid fa-arrow-up-right"></i>
-                  </a>
-                  <div className="content">
-                    <h5 className="title">
-                      <a href="/services">HR Development</a>
-                    </h5>
-                    <h4 className="sub-title">
-                      <a href="/services">All</a>
-                    </h4>
-                  </div>
-                </div>
+            {/* Reduced from a 4-image grid to a single featured block */}
+            <div className="case-block-three overlay-anim">
+              <figure className="image">
+                <img
+                  src="./assets/images/sharja/sharja-img-1.jpg"
+                  alt="Featured Case Study"
+                  style={{ width: "100%", height: "auto", objectFit: "cover" }}
+                />
+              </figure>
+              <a className="icon" href="/services">
+                <i className="fa-solid fa-arrow-up-right"></i>
+              </a>
+              <div className="content">
+                <h5 className="title">
+                  <a href="/services">IT Solutions & HR Development</a>
+                </h5>
+                <h4 className="sub-title">
+                  <a href="/services">Featured Project{""}</a>
+                </h4>
               </div>
             </div>
           </div>
@@ -193,6 +129,6 @@ const CaseStudy = (props: Props) => {
       </section>
     </div>
   );
-}
+};
 
-export default CaseStudy
+export default CaseStudy;

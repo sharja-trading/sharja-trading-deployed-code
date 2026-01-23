@@ -19,7 +19,7 @@ const Hero = (props: Props) => {
             </div>
           </div>
         </div>
-        <div className="bg-image tm-gsap-img-parallax"><img src="./assets/images/sharja/sharja-img-1.jpg" alt="Image"/></div>
+        <div className="bg-image tm-gsap-img-parallax"><img src="./assets/images/sharja/hero-new.jpg" alt="Image"/></div>
         <div className="arry"><img className="animation__arryLeftRight" src="./assets/images/shape/banner-arry.png" alt="Image"/></div>
       </div>
     </section>
